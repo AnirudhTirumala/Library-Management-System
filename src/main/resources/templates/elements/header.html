@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Електронна бібліотека</title>
+
+    <!-- CSS  -->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link th:href="@{/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link th:href="@{/js/main.js}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav th:fragment="header" class="#303f9f indigo darken-2" role="navigation">
+    <img style="position:absolute; left:130px;" width="65px" height="65px" class="brand-logo"
+         src="/images/logo.png">
+    <div style="position:relative;" class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">
+        <div>Електронна бібліотека</div>
+    </a>
+        <ul class="right hide-on-med-and-down">
+            </li>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a sec:authorize="hasAuthority('ADMIN')" href="/admin/debtors">Переглянути боржників</a></li>
+                <li><a sec:authorize="hasAuthority('ADMIN')" href="/admin/viewBids">Переглянути замовлення</a></li>
+                <li><a sec:authorize="hasAuthority('ADMIN')" href="/admin/addBook">Додати нову книгу</a></li>
+            </ul>
+            <li><a sec:authorize="hasAuthority('ADMIN')" class='dropdown-button' href='#' data-activates='dropdown1'>Адміністратор</a></li>
+            <li><a sec:authorize="!isAuthenticated()" href="/login">Увійти</a></li>
+            <li><a sec:authorize="isAuthenticated()" href="/logout">Вийти</a></li>
+            <i class="material-icons">input</i>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<br>
