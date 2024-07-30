@@ -1,0 +1,1 @@
+This Library Management System is a Java-based application built using Maven for dependency management. It allows users to efficiently manage library operations, including adding, updating, deleting, and searching for books. The system also handles user registrations and book borrowing/returning processes, ensuring a streamlined and organized library experience.
